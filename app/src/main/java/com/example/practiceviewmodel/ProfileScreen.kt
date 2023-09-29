@@ -20,7 +20,7 @@ import coil.compose.AsyncImage
 import org.jetbrains.annotations.Async
 
 @Composable
-fun profileScreen(
+fun ProfileScreen(
     userData: UserData?,
     onSignOut: () ->Unit
 ){

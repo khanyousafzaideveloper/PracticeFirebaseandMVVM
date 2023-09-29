@@ -48,6 +48,12 @@ class MainActivity : ComponentActivity() {
                             val viewModel = viewModel<HomeViewModel>()
                             val state by viewModel.state.collectAsState()   /////
 
+                            LaunchedEffect(key1 = Unit){
+                                if(googleAuthUiClient.signedInUser()!=null){
+                                    navController.navigate("profile")
+                                }
+                            }
+
                             val launcher= rememberLauncherForActivityResult(
                                 contract = ActivityResultContracts.StartIntentSenderForResult(),
                                 onResult = { result ->
@@ -69,6 +75,9 @@ class MainActivity : ComponentActivity() {
                                         "Sign in Successful",
                                         Toast.LENGTH_SHORT
                                     ).show()
+
+                                    navController.navigate("profile")
+                                    viewModel.resetState()
                                 }
                             }
 
@@ -89,7 +98,7 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                         composable("profile" ){
-                            profileScreen(userData = googleAuthUiClient.signedInUser(), onSignOut = {lifecycleScope.launch {
+                            ProfileScreen(userData = googleAuthUiClient.signedInUser(), onSignOut = {lifecycleScope.launch {
                                 googleAuthUiClient.signout()
                                 Toast.makeText(
                                     applicationContext,
