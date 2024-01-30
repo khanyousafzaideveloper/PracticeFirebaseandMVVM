@@ -1,7 +1,10 @@
 package com.example.practiceviewmodel
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
@@ -10,6 +13,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,13 +43,15 @@ fun FireStore(viewModel:FireStoreViewModel = viewModel()) {
             KeyboardCapitalization.Characters)
         )
 
-        Button(onClick = { viewModel.onClick() }) {
+        Button(onClick = { viewModel.onClick()}) {
             Text(text = "Push to Firestore")
         }
 
-        Text(text = "")
-        Text(text = "")
-        Text(text = "")
-        Text(text = "")
+        
+        Text(text = viewModel.dName)
+        Text(text = viewModel.dUniversity)
+        Text(text = viewModel.dSection)
+        Text(text = viewModel.dRollNo)
+
     }
 }
