@@ -68,11 +68,10 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
-    implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
-    implementation("com.google.firebase:firebase-firestore")
-    implementation ("androidx.navigation:navigation-compose:2.7.6")
+    implementation("com.google.firebase:firebase-firestore:24.10.2")
+    implementation ("androidx.navigation:navigation-compose:2.7.7")
     implementation("io.coil-kt:coil-compose:2.4.0")
-    implementation("com.google.firebase:firebase-firestore:24.10.1")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
 
 
 
